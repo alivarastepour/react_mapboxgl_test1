@@ -34,7 +34,7 @@ const sourceData: mapboxgl.GeoJSONSourceRaw["data"] = {
  * A view port can change current view and zoom of the map.
  */
 const DEFAULT_VIEW_PORT: ViewPort = {
-  zoom: 13,
+  zoom: 12,
   lat: 32.636193,
   lng: 51.693572,
 };
@@ -67,7 +67,7 @@ const MapWrapper = () => {
         }}
       />
       <CircleLayer id={"point"} source={"streets"} />
-      <Marker lngLat={[32.624691, 51.735869]} />
+      <Marker lngLat={[51.390275, 35.807988]} color="#1e1e1e" />
     </Map>
   );
 };
