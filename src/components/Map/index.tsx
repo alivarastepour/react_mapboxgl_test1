@@ -58,7 +58,14 @@ const MapWrapper = () => {
       {...DEFAULT_VIEW_PORT}
     >
       <GeoJSONSource id={"streets"} data={sourceData} />
-      <LineLayer id="salam" source={"streets"} />
+      <LineLayer
+        id="salam"
+        source={"streets"}
+        paint={{
+          "line-color": "#c21120",
+          "line-width": 3,
+        }}
+      />
       <CircleLayer id={"point"} source={"streets"} />
       <Marker lngLat={[32.624691, 51.735869]} />
     </Map>
