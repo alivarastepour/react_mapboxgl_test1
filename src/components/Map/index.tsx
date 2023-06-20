@@ -53,7 +53,7 @@ const MapWrapper = () => {
     <Map
       onClick={handleClick}
       token={process.env.REACT_APP_MAP_AUTH ?? ""}
-      // style={"parsimap-streets-v11"}
+      mapStyle={"parsimap-streets-v11"}
       onViewPortChange={handleViewPortChange}
       {...DEFAULT_VIEW_PORT}
     >
