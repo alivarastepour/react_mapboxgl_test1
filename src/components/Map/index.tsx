@@ -2,6 +2,7 @@ import {
   CircleLayer,
   FillLayer,
   GeoJSONSource,
+  HeatmapLayer,
   Layer,
   LineLayer,
   Map,
@@ -63,8 +64,18 @@ const MapWrapper = () => {
     // Doing something with updated viewPort
   }
 
+  const onMapLoad = (event: mapboxgl.MapboxEvent) => {
+    const map = event.target;
+
+    new mapboxgl.Popup({ closeOnClick: false })
+      .setLngLat([51.693572, 32.636193])
+      .setHTML(`<div className="prompt">hello</div>`)
+      .addTo(map);
+  };
+
   return (
     <Map
+      onLoad={onMapLoad}
       onClick={handleClick}
       token={process.env.REACT_APP_MAP_AUTH ?? ""}
       mapStyle={"satellite-raster"}
@@ -79,7 +90,7 @@ const MapWrapper = () => {
       />
       <Marker lngLat={[51.390275, 35.807988]} color="#1e1e1e" />
       <FillLayer
-        id="a"
+        id="poly-layer"
         source={{ type: "geojson", data: polygonSource }}
         paint={{ "fill-color": "#fff", "fill-opacity": 0.3 }}
       />
